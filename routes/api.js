@@ -39,7 +39,7 @@ router.post('/upload', (req, res) => {
       res.status(400).json({ msg: 'Error while uploading file' })
     } else {
       const freeBucketUri = '/f'
-      const link = 'http://' + req.get('host').concat(freeBucketUri + '/' + fileName)
+      const link = 'https://' + req.get('host').concat(freeBucketUri + '/' + fileName)
       console.log('link', link)
       res.status(200).json({ link })
     }
@@ -56,7 +56,7 @@ router.post('/upload-premium/', verifyToken, (req, res) => {
       res.status(400).json({ msg: 'Error while uploading file' })
     } else {
       const bucketUri = '/p'
-      const link = 'http://' + req.get('host').concat(bucketUri + '/' + fileName)
+      const link = 'https://' + req.get('host').concat(bucketUri + '/' + fileName)
       console.log('link', link)
       if (req.userId) {
         const file = new File({ name: fileName, userId: req.userId, link })
