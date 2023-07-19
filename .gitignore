@@ -1,2 +1,3 @@
-bucket
+bucket/p/*
+bucket/f/*
 .env
